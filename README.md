@@ -1,6 +1,6 @@
 ## Overview and Results:
 The following science/engineering solution was a Nanodegree solution and solved over AWS sagemaker and some endpoints while applying reinforcement learning with
-[.](https://vowpalwabbit.org/)
+[vowpal wabbit](https://vowpalwabbit.org/)
 
 In Detail the solution chosen, was a contextual bandit algorithm to forecast probabilities on redeeming specific coupons over time. The Algorithm was trained on a cluster of users, which have a high amount of fulfilled customer journeys. Test cluster has users which have a low amount of fulfilled customer journeys. Clusters were equally big and there were no mean differences in user charactersitcs, although some test yet remain to make that sure. Idea was to train the algo on reco behavior of users with more coupons redeemedso he could use the coupons redeemed in that group and use them for the group which had not so much redeemed coupons. Since preferneces for coupons change over time, the algo shows how it changes its user recommendation on coupons over time, when some coupons had no impact at all.
 

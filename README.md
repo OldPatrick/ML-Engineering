@@ -1,3 +1,21 @@
+## Overview and Results:
+The following science/engineering solution was a Nanodegree solution and solved over AWS sagemaker and some endpoints while applying reinforcement learning.
+
+In Detail the solution chosen, was a contextual bandit algorithm to forecast probabilities on redeeming specific coupons over time. The Algorithm was trained on a cluster of users, which have a high amount of fulfilled customer journeys. Test cluster has users which have a low amount of fulfilled customer journeys. Clusters were equally big and there were no mean differences in user charactersitcs, although some test yet remain to make that sure. Idea was to train the algo on reco behavior of users with more coupons redeemedso he could use the coupons redeemed in that group and use them for the group which had not so much redeemed coupons. Since preferneces for coupons change over time, the algo shows how it changes its user recommendation on coupons over time, when some coupons had no impact at all.
+
+Clusters were built in different ways just for fun:
+- manually (like above)
+- with AWS Sagemaker's kmeans (for showing off some cloud skills)
+- with an external train file and sklearn affinity clustering (which sucks) also with AWS Sagemaker to show the integration of some external estimator
+
+Missing data was forecasted with ExtraTreesRegressor and ExtraTreesClassifier, and a RandomizedSearchCV
+already forecasted data was not used for further imputation, but this helped forecasting the missing data and putting users and their journeys in some clusters at least.
+
+Permutation tests where made to be sure that the most important user characteristics would be significantly (and practically) different from each other in terms of mean and median. In this way it is assured that, if clusters <b>where not equal (which they luckily are)</b>, every found solution by the algorithm unfortunately should have attributed to the the user characterstics and not the different coupons send by Starbucks. 
+
+Benchmarks (no treatment group, no alternative costs or random group comparison) not possible because of setup.
+
+
 ## Folder and Files needed
     
 #### folder: train_scripts
